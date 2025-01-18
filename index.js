@@ -20,6 +20,7 @@ io.on("connection", (socket) => {
 
   // Teacher asks a question
   socket.on("askQuestion", (data) => {
+    console.log("Teacher asked a question:", data);
     currentQuestion = data;
     votes = {}; // Reset votes
     totalVotes = 0;
@@ -42,6 +43,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(5000, () => {
+server.listen(5001, () => {
   console.log("Server is running on 5001");
 });
