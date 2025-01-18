@@ -2,6 +2,7 @@ const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
 
+const PORT = process.env.PORT || 5000;
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -43,10 +44,7 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(5001, () => {
-  console.log("Server is running on 5001");
-});
 
-io.listen(5002, () => {
-  console.log(`Socket.IO server listening on port ${SOCKET_PORT}`);
+server.listen(PORT, () => {
+  console.log(`Server is running on ${PORT}`);
 });
