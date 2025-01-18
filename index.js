@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // Adjust to your React app's URL
+    origin: "*", // Adjust to your React app's URL
     methods: ["GET", "POST"],
   },
 });
@@ -43,5 +43,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(5000, () => {
-  console.log("Server is running on http://localhost:5000");
+  console.log("Server is running on 5000");
 });
